@@ -567,8 +567,8 @@ class Program(object):
         :rtype: Program
 
         """
-        if not all(map(lambda instr: isinstance(instr, Gate), self._instructions)):
-            raise ValueError("Program to be daggered must be contain only gate applications")
+        if any(not isinstance(instr, Gate) for instr in self._instructions):
+            raise ValueError("Program to be daggered must contain only gate applications")
 
         # This is a bit hacky. Gate.dagger() mutates the gate object,
         # rather than returning a fresh (and daggered) copy.        
