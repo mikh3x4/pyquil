@@ -571,7 +571,7 @@ class Program(object):
             raise ValueError("Program to be daggered must contain only gate applications")
 
         # This is a bit hacky. Gate.dagger() mutates the gate object,
-        # rather than returning a fresh (and daggered) copy.        
+        # rather than returning a fresh (and daggered) copy.
         return Program([instr.dagger() for instr
                         in reversed(Program(self.out())._instructions)])
 

@@ -295,6 +295,7 @@ def test_dagger():
     with pytest.raises(ValueError) as e:
         p.dagger().out()
 
+
 def test_construction_syntax():
     p = Program().inst(X(0), Y(1), Z(0)).measure(0, 1)
     assert p.out() == ('DECLARE ro BIT[2]\n'
